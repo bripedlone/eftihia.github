@@ -1,26 +1,21 @@
 //Trabajo complementario
 
-let ecuación = 3
+// let ecuación = 3
 
-for(let i = 0; i <= 3; i++){
+// for(let i = 0; i <= 3; i++){
 
-let respuesta = prompt(`Resolvé la ecuación e ingresa el resultado para acceder: x-3 = 3-x`);
+// let respuesta = prompt(`Resolvé la ecuación e ingresa el resultado para acceder: x-3 = 3-x`);
 
-if(ecuación === respuesta){
-    alert(`La solución de la ecuación es 3. ¡Felicitaciones! Tu respuesta es correcta`);
-    break;
-} else {
-    alert(`Te quedan `+ (2-i)+` intentos`);
-} if (i==2){
-    alert(`Llegaste al máximo de respuestas incorrectas. Intentalo otra vez`);
-    continue;
-}
-}
-
-
-
-
-
+// if(ecuación === respuesta){
+//     alert(`La solución de la ecuación es 3. ¡Felicitaciones! Tu respuesta es correcta`);
+//     break;
+// } else {
+//     alert(`Te quedan `+ (2-i)+` intentos`);
+// } if (i==2){
+//     alert(`Llegaste al máximo de respuestas incorrectas. Intentalo otra vez`);
+//     continue;
+//  }
+//  }
 
 /*
 let food = prompt("Que se te antoja?");
