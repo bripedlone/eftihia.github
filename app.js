@@ -1,12 +1,12 @@
 let nombre = prompt("Ingrese su nombre");
-bienvenido();
 
 function bienvenido() {
     alert(`¡Bienvenido/a a Eftihia ${nombre}! Iniciemos la compra`);
 }
 
-let compra = prompt(`Elegí la opción que más te interese: \n 1) "The secret history" \n 2) "Crimen y castigo" \n 3) "Bungou stray dogs" \n 4) "Tan poca vida"`);
+bienvenido();
 
+let compra = prompt(`Elegí la opción que más te interese: \n 1) "The secret history" \n 2) "Crimen y castigo" \n 3) "Bungou stray dogs" \n 4) "Tan poca vida"`);
 
 function theSecretHistory() {
     alert(`Elegiste "The secret history". Su costo es de $3349 ¿Procedemos con el pago?`);
@@ -39,56 +39,45 @@ if (compra === "1") {
 let pago = prompt(`¿Con qué método de pago vas a abonar?: \n 1: Tarjeta \n 2: Efectivo (Abonando en efectivo tenes un 10% de descuento)`);
 
 switch (pago) {
-    case (tarjeta):
-        alert("Decidiste abonar con tarjeta. INgresá el monto requerido");
-        break;
-    
-    case (efectivo): 
-        alert("Decidiste abonar en efectivo. Ingresá el monto requerido y obtené tu descuento");
-        break;
-    default:
-        break;
-}
-
-
-switch (pago) {
-    case tarjeta:
+    case "1":
+        let tarjeta = prompt(`Decidiste abonar con tarjeta. Ingresá el monto requerido`);
         if (tarjeta >= compra) {
             alert("¡Felicitaciones! Tu compra se realizó con éxito.");
             alert("Te esperamos para la próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
-        } else {
+        } else if (tarjeta < compra){
             alert("Fondos insuficientes, no se pudo realizar la compra.");
             break;
         }
         break;
-    case efectivo: 
-        if (efectivo >= "1") {
+    
+    case "2": 
+        let efectivo = prompt(`Decidiste abonar en efectivo. Ingresá el monto requerido y obtené tu descuento`);
+        if (efectivo >= compra) {
             Number(alert(`Tu descuento es de $` + 3349*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
             alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
-        } else if (efectivo >= "2") {
+        } else if (efectivo >= compra) {
             Number(alert(`Tu descuento es de $` + 3600*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
             alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
-        } else if (efectivo >= "3") {
+        } else if (efectivo >= compra) {
             Number(alert(`Tu descuento es de $` + 3600*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
             alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
-        } else if (efectivo >= "4") {
+        } else if (efectivo >= compra) {
             Number(alert(`Tu descuento es de $` + 6189*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
             alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
-        } else {
+        } else if (efectivo < compra){
             alert("No contas con el saldo suficiente, no se ha podido realizar tu compra. ¡Lo sentimos!");
             break;
         }
-        default:
-        console.log("Probando metodos de pago");
         break;
-     }
-    
+    default:
+        break;
+}

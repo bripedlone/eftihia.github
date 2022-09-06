@@ -1,66 +1,15 @@
-// let nombre = prompt(`Ingrese su nombre`);
-// bienvenido ();
+// const nombre = "La Odisea de Homero";
+// const precio = 3600;
+// const disponible = true;
 
-// function bienvenido (){
-//     alert(`¡Bienvenido/a a Eftihia ${nombre}! Iniciemos la compra.`);
+// const producto = {
+//     nombre: "La odisea de Homero",
+//     precio: 3600,
+//     disponible: true
 // }
 
-// let compra = prompt(`Elegí la opción que más te interese: \n 1)"The secret history" \n 2)"Crimen y castigo" \n 3) "Bungou stray dogs" \n 4)"Tan poca vida"`);
+// console.log(producto);
 
-// if (compra === "1") {
-//     theSecretHistory ();
-// } else if (compra === "2") {
-//     crimenYCastigo ();
-// } else if (compra === "3") {
-//     bungouStrayDogs ();
-// } else if (compra === "4") {
-//     tanPocaVida ();
-// } else {
-//     alert("El término ingresado no existe");
-// }
-
-// function theSecretHistory (){
-//     alert(`Elegiste "The secret history". Su costo es de $3349 ¿Procedemos con el pago?`);
-// }
-
-// function crimenYCastigo () {
-//     alert(`Elegiste "Crimen y castigo". Su costo es de $3600 ¿Procedemos con el pago?`);
-// }
-
-// function bungouStrayDogs () {
-//     alert(`Elegiste "Bungou stray dogs". Su costo es de $2660 ¿Procedemos con el pago?`);
-// }
-
-// function tanPocaVida () {
-//     alert(`Elegiste "Tan poca vida". Su costo es de $6189 ¿Procedemos con el pago?`);
-// }
-
-// let pago = prompt(`¿Con que método de pago vas a abonar?: \n 1: Trajeta \n 2: Efectivo (Abonando con este medio tenes un 10% de descuento)`);
-
-// const tarjeta = prompt (`Elegiste abonar con tarjeta. Ingresá el monto requerido`);
-// const efectivo = prompt(`Elegiste abonar con efectivo. Ingresá el monto requerido y obtené tu descuento`);
-
-// while (tarjeta >= compra) {
-//     alert("¡Felicitaciones! Tu compra se realizó con éxito");
-//     alert("Gracias por confiar en Eftihia. ¡Te esperamos para tu próxima compra")
-//     break;
-// }
-// while (tarjeta < compra) {
-//     alert(`Fondos insuficientes. ¡Lo sentimos! No podemos proceder con tu compra. Intenta de nuevo`);
-//     break;
-// }
-
-// if (efectivo >= "1") {
-//     Number(alert("Tu descuento es de $" + 3349*10/100));
-// } else if (efectivo >= "2") {
-//     Number(alert("Tu descuento es de $" + 3600*10/100));
-// } else if (efectivo >= "3") {
-//     Number(alert("Tu descuento es de $" + 2660*10/100));
-// } else if (efectivo >= "4") {
-//     Number(alert("Tu descuento es de $" + 6189*10/100));
-// } else {
-//     alert(`Tu saldo es insuficiente. ¡Lo sentimos! No se pudo realizar tu compra, intenta de nuevo.`);
-// }
 
 /*
 if (condition) {
