@@ -1,3 +1,34 @@
+//Clase 6 Arrays
+
+// const arrayA = [1, true, "Brisa"];
+// console.log(arrayA);
+
+// const miArray = ["marca", 3, "palabra"];
+
+// console.log(miArray.length);
+
+//Agregar valores
+
+// miArray.push("Otro elemento");
+
+//Agregar elemento al inicio
+// miArray.unshift("Elemento inicial");
+
+//Eliinar elemento
+
+//JOIN & CONCAT
+
+
+// const alumnos = ["Brisa", "Stefania"];
+// const tutores = ["Dario", "Rodrigo"];
+
+
+// const presentes = alumnos.concat(tutores);
+
+//Include
+
+
+
 // const nombre = "La Odisea de Homero";
 // const precio = 3600;
 // const disponible = true;
@@ -10,6 +41,50 @@
 
 // console.log(producto);
 
+// //Object constructor
+// function Producto (nombre, precio){
+//     this.nombre = nombre
+//     this.precio = precio
+//     this.disponible = true
+// }
+
+// const producto2 = new Producto ("Circe", 4500);
+
+// console.log(producto2)
+
+//Métodos personalizados
+
+// function Cliente(nombre, edad, domicilio) {
+//     this.nombre = nombre;
+//     this.edad = edad;
+//     this.domicilio = domicilio;
+
+//     this.saludar = function () {
+//         console.log("Saludos " + this.nombre);
+//     };
+// }
+
+// const cliente1 = new Cliente("Brisa", 19, "Av. Carlos Tejedor 224");
+// const cliente2 = new Cliente ("Stefania", 19, "Gascón 2152");
+
+// cliente1.saludar();
+// cliente2.saludar();
+
+// Class Declaration
+
+// class Cliente{
+//     constructor(nombre, acceso){
+//         this.nombre = nombre;
+//         this.acceso = acceso;
+//     }
+// }
+
+// const eftihia = new Cliente("Brisa", "Accepted");
+
+// console.log(eftihia);
+
+
+
 
 /*
 if (condition) {
@@ -19,173 +94,87 @@ if (condition) {
 }
 */
 
-/*
-const puntaje = "1000";
-//console.log(typeof puntaje);
+//Como utilizar arrays
 
-if (puntaje == 1000) {
-    console.log ("Es igual al valor indicado");
-    
-} else {
-    console.log("No es igual al valor indicado");
-}
-*/
+// const listaLibros = [];
+// let cantidad = 5;
 
-//operadores lógicos
-/*
-=== Estrictamente igual
-!== Mo es estrictamente igual
-> Mayor que
->= Mayor o igual
-<= Menor o igual que
-< Menor que
-&& And
-! Not
-*/
-/*
-const dinero = 300;
-const totalAPagar = 500;
-const tarjeta = false;
 
-if (dinero > totalAPagar) {
-    console.log("Puede proceder el pago")
-    // condiciones anidadas
-} else if(tarjeta){
-    console.log("Puede proceder el pago posee tarjeta");
-} else {
-    console.log("Fondos insuficientes")
-}
-*/
+// do {
+//     let entrada = prompt("Ingrese el libro");
+//     listaLibros.push(entrada.toLowerCase())
+//     console.log(listaLibros.length)
+// } while (listaLibros.length != cantidad);
 
-//SWITCH
-/*
-const metodoPago = "Efectivo";
+// const nuevaListaLibros = listaLibros.concat("La odisea", "La iliada");
 
-switch (metodoPago) {
-    case "Efectivo":
-        console.log("Abonaste en efectivo");
-    break;
-    case "Cheque":
-        console.log("Abonaste con cheque");
-    break;
-    case "Tarjeta":
-        console.log("Pagaste con tarjeta");
-    break;
-    default:
-        console.log("Metodo de pago no aceptado");
-        break;
-}
-*/
-/*
-const usuario = false;
-const puedePagar = false;
+// alert(nuevaListaLibros.join("\n"));
 
-if (usuario && puedePagar) {
-    console.log("Puede comprar");
-} else if (usuario){
-    console.log("No puede comprar");
-} else if (puedePagar){
-    console.log("No puede pagar")
-} else {
-    console.log("No puede ingresar");
-}
-*/
+//Como eliminar cualquier elemento de un array
 
-//OR
-/*
-const efectivo = 300;
-const credito = 200; 
-const disponible = efectivo + credito;
-const totalAPagar = 600;
- 
-if (efectivo > totalAPagar || credito > totalAPagar || disponible > totalAPagar) {
-    console.log("Puede comprar");
-} else{
-    console.log("Fondos insuficientes");
-}
-*/
+// const libros = ["La odisea", "La iliada", "Crimen y castigo", "Tan poca vida", "Sherlock Holmes"];
+
+// const eliminar = (libro) => {
+//     let i = libros.indexOf(libro);
+
+//     if (i != -1) {
+//         libros.splice(i, 1);
+//     }
+// }
+
+// eliminar("Sherlock Holmes");
+
+// console.log(libros);
+
+//Array de objetos
 
 /*
-let nombreAlumno = prompt("Ingrese nombre del alumno");
+const objeto1 = { id: 1, producto: "Arroz"};
 
-let apellidoAlumno = prompt("Ingrese apellido del alumno");
+const array = [objeto1, {id: 2, producto: "Fideo"}];
+array.push({id: 3, producto: "Atun"});
 
-console.log(nombreAlumno + " " + apellidoAlumno);
-
-if (nombreAlumno !== "" && apellidoAlumno !== ""){
-    alert("Nombre: " + nombreAlumno + " Apellido " + apellidoAlumno );
-} else{
-    alert("Completar datos");
-}
+console.log(array)
 */
 
-//ACT 1
-/*
-let entrada = prompt("Ingrese su nombre")
-const nombre = "BART";
+//Clase Higher order functions
 
-if (entrada == nombre) {
-    alert("Fui yo");
-} else {
-    alert("Yo no fui");
-}
-*/
+// function mensaje(nombre){
+//     console.log(`Saludos ${nombre}`);
+// }
 
-//ACT 3
-/*
-let entrada1 = prompt("Ingrese un número"); 
+// mensaje("Brisa");
 
-if (entrada1 == 1){
-    alert("Elegiste al Dios mayor Poseidón");
+// function callback(){
+//     console.log(`Soy un callback`);
+// }
 
-} else if (entrada1 == 2){
-    alert("Elegiste al Dios menor Apolo");
+// function mensaje(callback){
+//     callback();
+// }
 
-} else if (entrada1 == 3){
-    alert("Elegiste al Dios mayor Hades");
+// mensaje(callback);
 
-} else if (entrada1 == 4){
-    alert("Elegiste al Dios menor Hermes")
-} else {
-    alert("No ha ingresado el dato en el campo solicitado");
-}
-*/
+// function primero(segundo){
+//     setTimeout(function(){
+//         console.log("Primero")
+//         segundo()
+//     },5000)
+// }
 
-//ACT 4
-/*
-let entrada = parseFloat(prompt("Ingresar monto"));
-if ((entrada >= 0 ) && (entrada <= 1000)) {
-    alert("Presupuesto bajo");
-    
-} else if ((entrada >= 1001) && (entrada <= 3000)){
-    alert("Presupuesto medio");
+// function segundo(){
+//     console.log("Segundo")
+// }
 
-} else if ((entrada >= 3000)){
-    alert("Presupuesto alto");
+// primero(segundo);
 
-}
-*/
-
-//ACT 5
-/*
-tuve que ver la corrección, mejorar y practicar esto!
-let entrada = prompt("Ingrese producto 1");
-let entrada2 = prompt("Ingrese producto 2");
-let entrada3 = prompt("Ingrese producto 3");
-let entrada4 = prompt("Ingrese producto 4"); 
-
-if ((entrada1 !== "") && (entrada2 !== "") && (entrada3 !== "") && (entrada4 !== "")) {
-    let alacena = "1) " + entrada + " " +
-    "2) "  + entrada2  + " " +
-    "3) " + entrada3 + " " +
-    "4) " + entrada4;
-    console.log(alacena);
-} else {
-    console.log("ERROR: es necesario cargar todos los productos");
-}
-*/
+//FOR EACH
 
 
+const pendientes = ["desafios", "preentregas", "asitencias", "booklets"];
 
+// console.log(pendientes);
 
-
+pendientes.forEach((pendiente,indice)=>{
+    console.log(`${indice}: ${pendiente}`);
+})

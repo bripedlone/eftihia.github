@@ -1,3 +1,22 @@
+//1er Final
+
+class productoLibro{
+    constructor(nombre, precio, autor){
+        this.nombre = nombre;
+        this.precio = precio;
+        this.autor = autor;
+    }
+}
+
+const libros = [
+    {nombre: "Crimen y castigo", precio: 3.799, autor: "Fyodor Dostoievski" },
+    {nombre: "El retrato de Dorian Gray", precio: 2.099, autor: "Oscar Wilde"},
+    {nombre: "La metamorfosis", precio: 4.000, autor: "Franz Kafka"},
+    {nombre: "Orgullo y prejuicio", precio: 4.420, autor: "Jane Austen"},
+]
+
+//Funciones
+
 let nombre = prompt("Ingrese su nombre");
 
 function bienvenido() {
@@ -6,32 +25,39 @@ function bienvenido() {
 
 bienvenido();
 
-let compra = prompt(`Elegí la opción que más te interese: \n 1) "The secret history" \n 2) "Crimen y castigo" \n 3) "Bungou stray dogs" \n 4) "Tan poca vida"`);
-
-function theSecretHistory() {
-    alert(`Elegiste "The secret history". Su costo es de $3349 ¿Procedemos con el pago?`);
+if (nombre !== "") {
+    //var
+    let carrito = [];
+    let producto;
+    let pago;
 }
+
+let compra = prompt(`Elegí la opción que más te interese: \n 1) "Crimen y Castigo" \n 2) "El retrato de Dorian Gray" \n 3) "La metamorfosis" \n 4) "Orgullo y Prejuicio"`);
 
 function crimenYCastigo() {
-    alert(`Elegiste "Crimen y castigo". Su costo es de $3600 ¿Procedemos con el pago?`);
+    alert(`Elegiste "Crimen y castigo". Su costo es de $3.799 ¿Procedemos con el pago?`);
 }
 
-function bungouStrayDogs() {
-    alert(`Elegiste "Bungou stray dogs". Su costo es de $2660 ¿Procedemos con el pago?`);
+function elRetratoDeDorianGray() {
+    alert(`Elegiste "El retrato de Dorian Gray". Su costo es de $2.099 ¿Procedemos con el pago?`);
 }
 
-function tanPocaVida() {
-    alert(`Elegiste "Tan poca vida". Su costo es de $6189 ¿Procedemos con el pago?`)
+function laMetamorfosis() {
+    alert(`Elegiste "La metamorfosis". Su costo es de $4.000 ¿Procedemos con el pago?`);
+}
+
+function orgulloYPrejucio() {
+    alert(`Elegiste "Orgullo y prejuicio". Su costo es de $4.420 ¿Procedemos con el pago?`)
 }
 
 if (compra === "1") {
-    theSecretHistory ();
-} else if (compra === "2") {
     crimenYCastigo ();
+} else if (compra === "2") {
+    elRetratoDeDorianGray ();
 } else if (compra === "3") {
-    bungouStrayDogs ();
+    laMetamorfosis ();
 } else if (compra === "4") {
-    tanPocaVida ();
+    orgulloYPrejucio ();
 } else {
     alert("El término ingresado no existe");
 }
@@ -54,24 +80,20 @@ switch (pago) {
     case "2": 
         let efectivo = prompt(`Decidiste abonar en efectivo. Ingresá el monto requerido y obtené tu descuento`);
         if (efectivo >= compra) {
-            Number(alert(`Tu descuento es de $` + 3349*10/100));
+            Number(alert(`Tu descuento es de $` + 3799*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-            alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
         } else if (efectivo >= compra) {
-            Number(alert(`Tu descuento es de $` + 3600*10/100));
+            Number(alert(`Tu descuento es de $` + 2099*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-            alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
         } else if (efectivo >= compra) {
-            Number(alert(`Tu descuento es de $` + 3600*10/100));
+            Number(alert(`Tu descuento es de $` + 4000*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-            alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
         } else if (efectivo >= compra) {
-            Number(alert(`Tu descuento es de $` + 6189*10/100));
+            Number(alert(`Tu descuento es de $` + 4420*10/100));
             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-            alert("Te esperamos para tu próxima compra. ¡Gracias por confiar en Eftihia!");
             break;
         } else if (efectivo < compra){
             alert("No contas con el saldo suficiente, no se ha podido realizar tu compra. ¡Lo sentimos!");
@@ -81,3 +103,31 @@ switch (pago) {
     default:
         break;
 }
+
+function encuestaCalidad(){
+    alert("¡Antes de que te vayas queremos hacerte una breve encuesta para saber que tan conforme estas con el servicio y en que podemos mejorar!");
+    let options = prompt(`¿Cómo calificarías tu experiencia en Eftihia? \n 1: Mala \n 2: Regular \n 3: Buena \n 4: Muy buena`);
+    switch (options){
+        case "1":
+            console.log("Mala");
+            break;
+        
+        case "2":
+            console.log("Regular");
+            break;
+        case "3":
+            console.log("Buena");
+            break;
+        case "4": 
+        console.log("Muy buena");
+        break;
+        default:
+            console.log("El término ingresado no existe");
+    }
+}
+
+function goodbye(){
+    alert (`¡Muchas gracias por contestar esta pequeña encuesta ${nombre}! ¡Gracias por confiar e Eftihia! Te esperamos la próxima`);
+}
+encuestaCalidad()
+goodbye()
