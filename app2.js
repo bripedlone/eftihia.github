@@ -1,180 +1,163 @@
-//Clase 6 Arrays
-
-// const arrayA = [1, true, "Brisa"];
-// console.log(arrayA);
-
-// const miArray = ["marca", 3, "palabra"];
-
-// console.log(miArray.length);
-
-//Agregar valores
-
-// miArray.push("Otro elemento");
-
-//Agregar elemento al inicio
-// miArray.unshift("Elemento inicial");
-
-//Eliinar elemento
-
-//JOIN & CONCAT
-
-
-// const alumnos = ["Brisa", "Stefania"];
-// const tutores = ["Dario", "Rodrigo"];
-
-
-// const presentes = alumnos.concat(tutores);
-
-//Include
-
-
-
-// const nombre = "La Odisea de Homero";
-// const precio = 3600;
-// const disponible = true;
-
-// const producto = {
-//     nombre: "La odisea de Homero",
-//     precio: 3600,
-//     disponible: true
-// }
-
-// console.log(producto);
-
-// //Object constructor
-// function Producto (nombre, precio){
-//     this.nombre = nombre
-//     this.precio = precio
-//     this.disponible = true
-// }
-
-// const producto2 = new Producto ("Circe", 4500);
-
-// console.log(producto2)
-
-//Métodos personalizados
-
-// function Cliente(nombre, edad, domicilio) {
-//     this.nombre = nombre;
-//     this.edad = edad;
-//     this.domicilio = domicilio;
-
-//     this.saludar = function () {
-//         console.log("Saludos " + this.nombre);
-//     };
-// }
-
-// const cliente1 = new Cliente("Brisa", 19, "Av. Carlos Tejedor 224");
-// const cliente2 = new Cliente ("Stefania", 19, "Gascón 2152");
-
-// cliente1.saludar();
-// cliente2.saludar();
-
-// Class Declaration
-
-// class Cliente{
-//     constructor(nombre, acceso){
-//         this.nombre = nombre;
-//         this.acceso = acceso;
-//     }
-// }
-
-// const eftihia = new Cliente("Brisa", "Accepted");
-
-// console.log(eftihia);
-
-
-
-
-/*
-if (condition) {
-    //bloque verdadero
-} else {
-    //bloque falso
-}
-*/
-
-//Como utilizar arrays
-
-// const listaLibros = [];
-// let cantidad = 5;
-
-
-// do {
-//     let entrada = prompt("Ingrese el libro");
-//     listaLibros.push(entrada.toLowerCase())
-//     console.log(listaLibros.length)
-// } while (listaLibros.length != cantidad);
-
-// const nuevaListaLibros = listaLibros.concat("La odisea", "La iliada");
-
-// alert(nuevaListaLibros.join("\n"));
-
-//Como eliminar cualquier elemento de un array
-
-// const libros = ["La odisea", "La iliada", "Crimen y castigo", "Tan poca vida", "Sherlock Holmes"];
-
-// const eliminar = (libro) => {
-//     let i = libros.indexOf(libro);
-
-//     if (i != -1) {
-//         libros.splice(i, 1);
-//     }
-// }
-
-// eliminar("Sherlock Holmes");
-
-// console.log(libros);
-
-//Array de objetos
-
-/*
-const objeto1 = { id: 1, producto: "Arroz"};
-
-const array = [objeto1, {id: 2, producto: "Fideo"}];
-array.push({id: 3, producto: "Atun"});
-
-console.log(array)
-*/
-
-//Clase Higher order functions
-
-// function mensaje(nombre){
-//     console.log(`Saludos ${nombre}`);
-// }
-
-// mensaje("Brisa");
-
-// function callback(){
-//     console.log(`Soy un callback`);
-// }
-
-// function mensaje(callback){
-//     callback();
-// }
-
-// mensaje(callback);
-
-// function primero(segundo){
-//     setTimeout(function(){
-//         console.log("Primero")
-//         segundo()
-//     },5000)
-// }
-
-// function segundo(){
-//     console.log("Segundo")
-// }
-
-// primero(segundo);
-
-//FOR EACH
-
-
-const pendientes = ["desafios", "preentregas", "asitencias", "booklets"];
-
-// console.log(pendientes);
-
-pendientes.forEach((pendiente,indice)=>{
-    console.log(`${indice}: ${pendiente}`);
+const shop = document.getElementById("shopContent");
+const verCarrito = document.getElementById("verCarrito")
+const modalContainer = document.getElementById("modal-container")
+
+const productos = [
+    {
+        id: 1,
+        nombre: "Crimen y castigo",
+        precio: 3.799,
+        img: "../eftihia/img/crimenycastigo-clasico.jpg",
+    },
+    {
+        id: 2, 
+        nombre: "El retrato de Dorian Gray",
+        precio: 2099,
+        img: "../eftihia/img/doriangray-clasico.jpg"
+    },
+    {
+        id: 3,
+        nombre: "La metamorfosis",
+        precio: 4000,
+        img: "../eftihia/img/metamorfosis-clasico.jpg",
+    },
+    {
+        id: 4,
+        nombre: "Orgullo y prejuicio",
+        precio: 4420,
+        img: "../eftihia/img/orgulloyprejuicio-clasico.jpg",
+    },
+    {
+        id: 5,
+        nombre: "Los hermanos Karamazov",
+        precio: 4299,
+        img: "../eftihia/img/karamazov-rusa.jpg",
+    },
+    {
+        id: 6,
+        nombre: "El maestro y la margarita",
+        precio: 4300,
+        img: "../eftihia/img/margarita-rusa.jpg",
+    },
+    {
+        id: 7,
+        nombre: "Lolita",
+        precio: 3500,
+        img: "../eftihia/img/lolita-rusa.jpg",
+    },
+    {
+        id: 8,
+        nombre: "Noches blancas",
+        precio: 2839,
+        img: "../eftihia/img/nochesblacas-rusa.jpg",
+    },
+    {
+        id: 9,
+        nombre: "The secret history",
+        precio: 2776,
+        img:"../eftihia/img/secrethistory-ing.jpg"
+    },
+    {
+        id: 10,
+        nombre: "1984",
+        precio: 3999,
+        img: "../eftihia/img/1984-ing.jpg",
+    },
+    {
+        id: 11,
+        nombre: "The goldfinch",
+        precio: 6956,
+        img: "../eftihia/img/goldfinch-ing.jpg",
+    },
+    {
+        id: 12,
+        nombre: "If we were villains",
+        precio: 2418,
+        img:"../eftihia/img/villains-ing.jpg",
+    },
+    {
+        id: 13,
+        nombre: "Sherlock Holmes",
+        precio: 4449,
+        img: "../eftihia/img/sherlockholmes-ing.jpg" ,
+    },
+    {
+        id: 14,
+        nombre: "El nombre de la rosa",
+        precio: 2849,
+        img: "../eftihia/img/elnombredelarosa.jpg" ,
+    },
+    {
+        id: 15,
+        nombre: "Los crimenes de la calle morgue",
+        precio: 1752,
+        img: "../eftihia/img/morgue-poli.jpg",
+    },
+    {
+        id: 16, 
+        nombre: "El espía que surgió del frío",
+        precio: 2295,
+        img: "../eftihia/img/thespy-poli.jpg",
+    },
+]
+
+let carrito = [];
+
+productos.forEach((product)=>{
+    let content = document.createElement("div");
+    content.className = "card";
+    content.innerHTML = `
+    <img src="${product.img}">
+    <h3 class="tituloClasic">${product.nombre}</h3>
+    <p class="price">$${product.precio}</p>
+    `;
+
+    shopContent.append(content);
+
+    let comprar = document.createElement("button")
+    comprar.innerText = "Comprar";
+    comprar.className ="btn btn-primary";
+
+    content.append(comprar);
+
+    comprar.addEventListener("click", ()=>{
+        carrito.push({
+            id: product.id,
+            img: product.img,
+            nombre: product.nombre,
+            precio: product.precio,
+        })
+        console.log(carrito)
+    })
 })
+verCarrito.addEventListener("click", ()=>{
+    const modalHeader = document.createElement("div");
+    modalHeader.className = "modal-header"
+    modalHeader.innerHTML = `
+    <h1 class="modal-header-title">Carrito</h1>
+    `;
+    modalContainer.append(modalHeader);
+
+    const modalbutton = document.createElement("h2");
+    modalbutton.innerText ="x";
+    modalbutton.className = "modal-header-button";
+
+    modalHeader.append(modalbutton);
+
+    carrito.forEach((product)=>{
+        let carritoContent = document.createElement("div")
+        carritoContent.className = "modal-content"
+        carritoContent.innerHTML =`
+        <img src="${product.img}">
+        <h3>${product.nombre}</h3>
+        <p>$${product.precio}</p>
+        `
+        modalContainer.append(carritoContent)
+    })
+    const total = carrito.reduce((acc, el)=> acc + el.precio, 0);
+
+    const totalBuying = document.createElement("div");
+    totalBuying.className = "total-content";
+    totalBuying.innerHTML =`total a pagar: $${total}`;
+    modalContainer.append(totalBuying)
+});

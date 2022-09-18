@@ -122,7 +122,7 @@ body{
 
 /*Card clasic section*/
 
-.card__classic{
+/* .card__classic{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -131,7 +131,7 @@ body{
 .card1__c{
     width: 30%;
     display: inline-block;
-    justify-content: space-evenly;
+    justify-content: space-between;
     text-decoration: none;
     color: #fff;
     box-shadow: 1px 1px 30px -6px #132a13;
@@ -147,8 +147,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 .tituloClasic{
+    color: #90a955;
+    font-size: x-large;
+}
+.price{
     color: #90a955;
     font-size: x-large;
 }
@@ -160,4 +164,39 @@ body{
     box-shadow: 1px 1px 30px -6px #132a13;
     padding: 10px 10px;
     border-radius: 10px;
+}
+
+/* cards */
+
+.card{
+    display: inline-block;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0  #132a13 ;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+.card img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 2o0px;
+}
+
+.tituloClasic{
+    color:  #90a955;
+    font-size: 22px;
+}
+.card button{
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: #fff;
+    background-color: #31572c;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px; 
 }
