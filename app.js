@@ -1,133 +1,183 @@
-//1er Final
+const shop = document.getElementById("shopContent");
+const modalContainer = document.getElementById("modal-container")
+const contenedorCarrito =ndocument.getElementById("carrito-contenedor")
+const botonVaciar = document.getElementById("vaciar-carrito")
+const precioTotal = document.getElementById("precioTotal")
 
-class productoLibro{
-    constructor(nombre, precio, autor){
-        this.nombre = nombre;
-        this.precio = precio;
-        this.autor = autor;
+let carrito = []
+
+document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem(`carrito`)){
+        carrito = JSON.parse(localStorage.getItem(`carrito`))
+        actualizarCarrito()
     }
-}
+})
 
-const libros = [
-    {nombre: "Crimen y castigo", precio: 3.799, autor: "Fyodor Dostoievski" },
-    {nombre: "El retrato de Dorian Gray", precio: 2.099, autor: "Oscar Wilde"},
-    {nombre: "La metamorfosis", precio: 4.000, autor: "Franz Kafka"},
-    {nombre: "Orgullo y prejuicio", precio: 4.420, autor: "Jane Austen"},
+botonVaciar.addEventListener("click", () =>{
+    carrito.length = 0
+    actualizarCarrito()
+})
+
+let shopContent = [
+    {
+        id: 1,
+        nombre: "Crimen y castigo",
+        precio: 3.799,
+        img: "../eftihia/img/crimenycastigo-clasico.jpg",
+    },
+    {
+        id: 2, 
+        nombre: "El retrato de Dorian Gray",
+        precio: 2099,
+        img: "../eftihia/img/doriangray-clasico.jpg"
+    },
+    {
+        id: 3,
+        nombre: "La metamorfosis",
+        precio: 4000,
+        img: "../eftihia/img/metamorfosis-clasico.jpg",
+    },
+    {
+        id: 4,
+        nombre: "Orgullo y prejuicio",
+        precio: 4420,
+        img: "../eftihia/img/orgulloyprejuicio-clasico.jpg",
+    },
+    {
+        id: 5,
+        nombre: "Los hermanos Karamazov",
+        precio: 4299,
+        img: "../eftihia/img/karamazov-rusa.jpg",
+    },
+    {
+        id: 6,
+        nombre: "El maestro y la margarita",
+        precio: 4300,
+        img: "../eftihia/img/margarita-rusa.jpg",
+    },
+    {
+        id: 7,
+        nombre: "Lolita",
+        precio: 3500,
+        img: "../eftihia/img/lolita-rusa.jpg",
+    },
+    {
+        id: 8,
+        nombre: "Noches blancas",
+        precio: 2839,
+        img: "../eftihia/img/nochesblacas-rusa.jpg",
+    },
+    {
+        id: 9,
+        nombre: "The secret history",
+        precio: 2776,
+        img:"../eftihia/img/secrethistory-ing.jpg"
+    },
+    {
+        id: 10,
+        nombre: "1984",
+        precio: 3999,
+        img: "../eftihia/img/1984-ing.jpg",
+    },
+    {
+        id: 11,
+        nombre: "The goldfinch",
+        precio: 6956,
+        img: "../eftihia/img/goldfinch-ing.jpg",
+    },
+    {
+        id: 12,
+        nombre: "If we were villains",
+        precio: 2418,
+        img:"../eftihia/img/villains-ing.jpg",
+    },
+    {
+        id: 13,
+        nombre: "Sherlock Holmes",
+        precio: 4449,
+        img: "../eftihia/img/sherlockholmes-ing.jpg" ,
+    },
+    {
+        id: 14,
+        nombre: "El nombre de la rosa",
+        precio: 2849,
+        img: "../eftihia/img/elnombredelarosa.jpg" ,
+    },
+    {
+        id: 15,
+        nombre: "Los crimenes de la calle morgue",
+        precio: 1752,
+        img: "../eftihia/img/morgue-poli.jpg",
+    },
+    {
+        id: 16, 
+        nombre: "El espía que surgió del frío",
+        precio: 2295,
+        img: "../eftihia/img/thespy-poli.jpg",
+    },
 ]
 
-//Funciones
+productos.forEach((product)=>{
+    let content = document.createElement("div");
+    content.className = "card";
+    content.innerHTML = `
+    <img src="${product.img}">
+    <h3 class="tituloClasic">${product.nombre}</h3>
+    <p class="price">$${product.precio}</p>
+    `;
 
-// let nombre = prompt("Ingrese su nombre");
+    shopContent.append(content);
 
-// function bienvenido() {
-//     alert(`¡Bienvenido/a a Eftihia ${nombre}! Iniciemos la compra`);
-// }
+    const boton = document.getElementById(`Agregar ${producto.id}`)
 
-// bienvenido();
+    boton.addEventListener("click", () => {
+        agregarAlCarrito(producto.id)
+    })
+    })
 
-// if (nombre !== "") {
-//     //var
-//     let carrito = [];
-//     let producto;
-//     let pago;
-// }
 
-// let compra = prompt(`Elegí la opción que más te interese: \n 1) "Crimen y Castigo" \n 2) "El retrato de Dorian Gray" \n 3) "La metamorfosis" \n 4) "Orgullo y Prejuicio"`);
+const agregarAlCarrito = (prodId) => {
+    const existe = carrito.some (prod => prod.id === prodId)
 
-// function crimenYCastigo() {
-//     alert(`Elegiste "Crimen y castigo". Su costo es de $3.799 ¿Procedemos con el pago?`);
-// }
+    if (existe){
+        const prod = carrito.map(prod => {
+            if (prod.id === prodId){
+                prod.cantidad++
+            }
+        })
+    } else {
 
-// function elRetratoDeDorianGray() {
-//     alert(`Elegiste "El retrato de Dorian Gray". Su costo es de $2.099 ¿Procedemos con el pago?`);
-// }
+    const item = stockProductos.find ((prod) => prod.Id === prodId)
+    carrito.push(item)
+    console.log(carrito)
+}
+actualizarCarrito()
 
-// function laMetamorfosis() {
-//     alert(`Elegiste "La metamorfosis". Su costo es de $4.000 ¿Procedemos con el pago?`);
-// }
+const elimicarDelCarrito = (prodId) => {
+    const item = carrito.find((prod) =>prod.id === prodId)
+    const indice = carrito.indexOf(item)
+    carrito.splice(indice, 1)
+    actualizarCarrito()
+}
 
-// function orgulloYPrejucio() {
-//     alert(`Elegiste "Orgullo y prejuicio". Su costo es de $4.420 ¿Procedemos con el pago?`)
-// }
+const actualizarCarrito = () =>{
 
-// if (compra === "1") {
-//     crimenYCastigo ();
-// } else if (compra === "2") {
-//     elRetratoDeDorianGray ();
-// } else if (compra === "3") {
-//     laMetamorfosis ();
-// } else if (compra === "4") {
-//     orgulloYPrejucio ();
-// } else {
-//     alert("El término ingresado no existe");
-// }
+    contenedorCarrito.innerHTML = ""
 
-// let pago = prompt(`¿Con qué método de pago vas a abonar?: \n 1: Tarjeta \n 2: Efectivo (Abonando en efectivo tenes un 10% de descuento)`);
+    carrito.forEach((prod) =>{
+        const div = document.createElement("div")
+        div.className= "producto-carrito"
+        div.innerHTML = `
+        <p>${prod.nombre}</p>
+        <p>${prod.precio}</p>
+        <p>Cantidad: >span id="cantidad>${prod.cantidad}</span></p>
+        >button onclick = "eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></button>
+        `
+        contenedorCarrito.appendChild(div)
 
-// switch (pago) {
-//     case "1":
-//         let tarjeta = prompt(`Decidiste abonar con tarjeta. Ingresá el monto requerido`);
-//         if (tarjeta >= compra) {
-//             alert("¡Felicitaciones! Tu compra se realizó con éxito.");
-//             alert("Te esperamos para la próxima compra. ¡Gracias por confiar en Eftihia!");
-//             break;
-//         } else if (tarjeta < compra){
-//             alert("Fondos insuficientes, no se pudo realizar la compra.");
-//             break;
-//         }
-//         break;
+        localStorage.setItem(`carrito`, JSON.stringify(carrito))
+        contadorCarrito.innerText = carrito.length
+        precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0)
     
-//     case "2": 
-//         let efectivo = prompt(`Decidiste abonar en efectivo. Ingresá el monto requerido y obtené tu descuento`);
-//         if (efectivo >= compra) {
-//             Number(alert(`Tu descuento es de $` + 3799*10/100));
-//             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-//             break;
-//         } else if (efectivo >= compra) {
-//             Number(alert(`Tu descuento es de $` + 2099*10/100));
-//             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-//             break;
-//         } else if (efectivo >= compra) {
-//             Number(alert(`Tu descuento es de $` + 4000*10/100));
-//             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-//             break;
-//         } else if (efectivo >= compra) {
-//             Number(alert(`Tu descuento es de $` + 4420*10/100));
-//             alert("¡Felicitaciones! Tu compra se realizó con éxito");
-//             break;
-//         } else if (efectivo < compra){
-//             alert("No contas con el saldo suficiente, no se ha podido realizar tu compra. ¡Lo sentimos!");
-//             break;
-//         }
-//         break;
-//     default:
-//         break;
-// }
-
-// function encuestaCalidad(){
-//     alert("¡Antes de que te vayas queremos hacerte una breve encuesta para saber que tan conforme estas con el servicio y en que podemos mejorar!");
-//     let options = prompt(`¿Cómo calificarías tu experiencia en Eftihia? \n 1: Mala \n 2: Regular \n 3: Buena \n 4: Muy buena`);
-//     switch (options){
-//         case "1":
-//             console.log("Mala");
-//             break;
-        
-//         case "2":
-//             console.log("Regular");
-//             break;
-//         case "3":
-//             console.log("Buena");
-//             break;
-//         case "4": 
-//         console.log("Muy buena");
-//         break;
-//         default:
-//             console.log("El término ingresado no existe");
-//     }
-// }
-
-// function goodbye(){
-//     alert (`¡Muchas gracias por contestar esta pequeña encuesta ${nombre}! ¡Gracias por confiar e Eftihia! Te esperamos la próxima`);
-// }
-// encuestaCalidad()
-// goodbye()
+    })
+}
