@@ -1,8 +1,14 @@
-* {
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+*{
+    font-family: 'Bebas Neue', cursive;
     margin: 0;
     padding: 0;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
     box-sizing: border-box;
-    font-family: 'Bebas Neue', cursive;
+    list-style: none;
+    text-decoration: none;
 }
 
 /* NAVBAR */
@@ -12,55 +18,49 @@
     height: 80px;
     margin-top: 40px;
     position: sticky;
-    /* z-index: 1;
-    background-color: #132a13; */
+    background-color: #31572c;
+    z-index: 1;
+}
+:root {
+    --main-color: #31572c ;
+    --text-color: #3f3c3c;
+    --bg-color: #90a955;
+}
+
+/* Header */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 1.5px;
+    width: 100%;
+    height: 9%;
+    background: var(--bg-color);
+    box-shadow: 0 1px 4px hsl(0, 4%, 15% / 10%);
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
 }
 .logo{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-bottom: 50px;
-}
-.logo img{
-    width: 30px;
-}
-.container__menu{
-    width: 1200px;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-}
-¡
-.menu{
-    display: flex;
-    align-items: center;
-}
-.menu ul{
-    display: flex;
-}
-.menu ul li{
-    list-style: none;
-    margin-left: 46px;
-}
-.menu ul li a{
+    color: #31572c;
+    font-size: 1.5rem;
+    font-weight: 400;
     text-decoration: none;
-    font-size: 20px;
-    color: rgb(94, 84, 84);
-    text-transform: uppercase;
-    font-family: 'Bebas Neue', cursive;
 }
-#selected{
-    background: #132a13;
-    padding: 10px 40px;
-    border-radius: 50px;
+#cart-icon{
+    font-size: 1.8rem;
+    cursor: pointer;
 }
+
 
 /*COVER*/
 .container__cover{
     width: 100%;
     height: 750px;
-    background-color: #90a955;
+    background-color: var(--bg-color);
 }
 .cover{
     max-width: 1200px;
@@ -105,7 +105,6 @@ html{
 body{
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    background-color: #ecf39e;
     overflow-x: hidden;
 }
 
@@ -127,6 +126,7 @@ body{
     margin: 10px;
     margin-bottom: 20px;
     box-shadow: 2px 6px 3px 3px #132a13;
+    background-color: #90a955;
 }
 
 /*Card clasic section*/
@@ -149,7 +149,7 @@ body{
     padding-right: 10px;
     border-radius: 12px;
 }
-.card1__c img{
+.card1-img{
     width: 200px;
     height: 200px;
     padding: 15px 30px 15px;

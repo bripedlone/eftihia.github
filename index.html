@@ -8,33 +8,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet">
+<title>Eftihia - Book store</title>
 <!--CSS-->
-    <link rel="stylesheet" href="style.css">
-    <title>Eftihia - Home</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!--Box Icons-->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
 </head>
 <body>
-    <header class="hero">
-        <section class="header">
-        <div class="container__menu">
-            <div class="logo">
-                <img src="../eftihia/img/book-bookmark-regular-24.png" alt="">
+    <header>
+        <div class="nav container">
+            <a href="#" class="logo">Eftihia Book store</a>
+            <!-- Cart Icon -->
+            <i class='bx bx-shopping-bag' id="cart-icon"></i>
+            <!-- Cart -->
+            <!-- <div class="cart">
+                <h2 class="cart-title">Cart</h2>
+                <div class="cart-content">
+                    <div class="cart-box">
+                        
+                        <!-- Total -->
+                        <!-- <div class="total-title">Total</div> -->
+                        <!-- <div class="total-price">$0</div> -->
+                        <!-- Buy Button -->
+                        <!-- <button type="button" class="btn-buy">Buy now</button> -->
+                        <!-- Cart Close -->
+                        <!-- <i class='bx bx-x' id="close-cart"></i> -->
+                    </div>
+                </div>
             </div>
-            <div class="menu">
-                <nav>
-                    <ul>
-                        <li><a href="#" id="selected">Home</a></li>
-                        <li><a href="#literaturaclasica">Literatura clásica</a></li>
-                        <li><a href="#literaturarusa">Literatura Rusa</a></li>
-                        <li><a href="#literaturaing">Literatura inglesa</a></li>
-                        <li><a href="#novelapolicial">Novela policial</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="" class="ver-carrito" id="ver-carrito">🛒</a></li>
-                    </ul>
-                    
-                </nav>
-            </div>
-        </div>
-    </section>
+        </div> 
     </header>
     <main class="main">
         <div class="container__cover">
@@ -48,178 +52,19 @@
                 </div>
             </div>
         </div>
-
-        <!--shopcontent-->
-        <div id="shopContent"></div>
-
-        <div class="modal-contenedor">
-            <div class="modal-carrito">
-                <h3>Carrito</h3>
-                <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-                <div id="carrito-contenedor"></div>
-                <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
-                <button id="vaciar-carrito" class="boton-agregar">Vaciar carrito</button>
-             </div>
-        </div>
-        <!-- <div> -->
-            <!-- <h2 class="titulo">Literatura clásica</h2>
-        </div>
-        <section class="card__classic">
-            <div class="card1">
-                <div id="1">
-                <article class="card1__c">
-                    <img src="../eftihia/img/crimenycastigo-clasico.jpg" alt="">
-                    <h3 class="tituloClasic">Crimen y Castigo</h3>
-                    <p class="tituloClasic">$3.799</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-               </div>
-               <div id="2">
-                <article class="card1__c">
-                    <img src="../eftihia/img/doriangray-clasico.jpg" alt="">
-                    <h3 class="tituloClasic">El retrato de Dorian Gray</h3>
-                    <p class="tituloClasic">$2.099</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="3">
-                <article class="card1__c">
-                    <img src="../eftihia/img/metamorfosis-clasico.jpg" alt="">
-                    <h3 class="tituloClasic">La Metamorfosis</h3>
-                    <p class="tituloClasic">$4.000</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="4">
-                <article class="card1__c">
-                    <img src="../eftihia/img/orgulloyprejuicio-clasico.jpg" alt="Orgullo y prejuicio">
-                    <h3 class="tituloClasic">Orgullo y Prejuicio</h3>
-                    <p class="tituloClasic">$4.420</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            </div>
-        </section>
-        <div>
-            <h2 class="titulo">Literatura Rusa</h2>
-        </div>
-        <section class="card__classic">
-                <div class="card1">
-                    <div id="5">
-                    <article class="card1__c">
-                        <img src="../eftihia/img/karamazov-rusa.jpg" alt="Los hermanos Karamazov">
-                        <h3 class="tituloRusia">Los hermanos Karamazov</h3>
-                        <p class="tituloRusia">$4.299</p>
-                        <a href="" class="btn btn-primary">Agregar al carrito</a>
-                    </article>
-                </div>
-                <div id="6">
-                    <article class="card1__c">
-                        <img src="../eftihia/img/margarita-rusa.jpg" alt="El maestro y margarita">
-                        <h3 class="tituloRusia">El maestro y margarita</h3>
-                        <p class="tituloRusia">$4.300</p>
-                        <a href="" class="btn btn-primary">Agregar al carrito</a>
-                    </article>
-                </div>
-                <div id="7">
-                    <article class="card1__c">
-                        <img src="../eftihia/img/lolita-rusa.jpg" alt="Lolita">
-                        <h3 class="tituloRusia">Lolita</h3>
-                        <p class="tituloRusia">$3.500</p>
-                        <a href="" class="btn btn-primary">Agregar al carrito</a>
-                    </article>
-                </div>
-                <div id="8">
-                    <article class="card1__c">
-                        <img src="../eftihia/img/nochesblacas-rusa.jpg" alt="Noches blancas">
-                        <h3 class="tituloRusia">Noches blancas</h3>
-                        <p class="tituloRusia">$2.839</p>
-                        <a href="" class="btn btn-primary">Agregar al carrito</a>
-                    </article>
-                </div>
-                </div>
-        </section>
-        <div>
-            <h2 class="titulo">Literatura Inglesa</h2>
-        </div>
-        <section class="card__classic">
-            <div class="card1">
-                <div id="9">
-                <article class="card1__c">
-                    <img src="../eftihia/img/secrethistory-ing.jpg" alt="The secret history">
-                    <h3 class="tituloIng">The secret history</h3>
-                    <p class="tituloIng">$2.776</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="10">
-                <article class="card1__c">
-                    <img src="../eftihia/img/1984-ing.jpg" alt="1984">
-                    <h3 class="tituloIng">1984</h3>
-                    <p class="tituloIng">$3.999</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="11">
-                <article class="card1__c">
-                    <img src="../eftihia/img/goldfinch-ing.jpg" alt="The goldfinch">
-                    <h3 class="tituloIng">The goldfinch</h3>
-                    <p class="tituloIng">$6.956</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="12">
-                <article class="card1__c">
-                    <img src="../eftihia/img/villains-ing.jpg" alt="If we were villains">
-                    <h3 class="tituloIng">If we were villains</h3>
-                    <p class="tituloIng">$2.418</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            </div>
-        </section>
-        <div>
-            <h2 class="titulo">Novela policial</h2>
-        </div>
-        <section class="card__classic">
-            <div class="card1">
-                <div id="13">
-                <article class="card1__c">
-                    <img src="../eftihia/img/sherlockholmes-ing.jpg" alt="">
-                    <h3 class="tituloPolicial">Sherlock Holmes</h3>
-                    <p class="tituloPolicial">$4.449</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="14">
-                <article class="card1__c">
-                    <img src="../eftihia/img/elnombredelarosa.jpg" alt="">
-                    <h3 class="tituloPolicial">El nombre de la rosa</h3>
-                    <p class="tituloPolicial">$2.849</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="15">
-                <article class="card1__c">
-                    <img src="../eftihia/img/morgue-poli.jpg" alt="">
-                    <h3 class="tituloPolicial">Los crimenes de la calle morgue</h3>
-                    <p class="tituloPolicial">$1.752</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            <div id="16">
-                <article class="card1__c">
-                    <img src="../eftihia/img/thespy-poli.jpg" alt="">
-                    <h3 class="tituloPolicial">El espía que surgió del frío</h3>
-                    <p class="tituloPolicial">$2.295</p>
-                    <a href="" class="btn btn-primary">Agregar al carrito</a>
-                </article>
-            </div>
-            </div>
-        </section> -->
-
     </main>
-    <script src="./app.js"></script>
+    <!--Shop content-->
+    <section>
+        <div class="container">
+            <div id="container" class="row"></div>
+        </div>
+    </section>
+    <!--cart-->
+    <div id="cart"></div>
+    <a name="cart"></a>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="./app2.js"></script>
 </body>
 </html>
