@@ -1,3 +1,5 @@
+const contenedor = document.getElementById("container")
+
 const products = [
     {
         "id": 1,
@@ -89,65 +91,136 @@ const dibujarProducto = ()=> {
     let contenedor = document.getElementById("container")
     products.forEach((product, indice) => {
         let card = document.createElement("div")
-        card.classList.add("card", "col-sm-12", "col-lg-3");
-        card.innerHTML += `<div class="card" style="width: 18rem;">
-        <img src="${shopContent.img}" class="card-img-top" alt="...">
+        card.classList.add("card", "col-sm-12", "col-lg-3", "add-cart");
+        card.innerHTML += `<img src="${product.img}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${product.name}</h5>
           <p class="card-text">${product.price}</p>
-          <a href="#" class="btn btn-buy" onclick="agregarAlCarrito()">Buy</a>
-        </div>`;
+          <a href="#" class="btn btn-primary" onclick="add-cart()">Buy</a>
+          </div>`;
         contenedor.appendChild(card)
     });
 }
 dibujarProducto();
 
-let cart = []
-let modalCart = document.getElementById("cart") 
+// Cart
+let cartIcon = document.querySelector("#cart-icon");
+let cart = document.querySelector(".cart");
+let closeCart = document.querySelector("#close-cart");
 
-const agregarAlCarrito = (indice) =>{
-    const indiceFindCart = cart.findIndex((element)=>{
-        return element.id === product[indice].id
-    });
-    if(indiceFindCart === -1){
-        const productAdd = products[indice]
-        productAdd.quantity = 1;
-        cart.push(productAdd);
-        dibujarCarrito()
-    }else{
-        cart[indiceFindCart].quantity +=1;
-        dibujarCarrito(); localStorage.getItem("productos añadidos")
-    }
+//Open cart
+cartIcon.onclick = () =>{
+    cart.classList.add("active");
+};
+//Close cart
+closeCart.onclick = () =>{
+    cart.classList.remove("active");
+};
+
+//Cart working
+if(document.readyState == 'loading'){
+    document.addEventListener('DOMContentLoaded', ready)
+}else{
+    ready()
 }
 
-
-let total = 0
-const dibujarCarrito = () =>{
-    modalCart.className = "cartt"
-    modalCart.innerHTML = "";
-    if(cart.length > 0){
-        cart.forEach((product, indice) =>{
-            total = total + product.price * product.quantity; localStorage.getItem("producto total")
-            const cartContainer = document.createElement("div");
-            cartContainer.className = "cart-product";
-            cartContainer.innerHTML = `
-            <img class= "cart-img" src= "${product.img}"/>
-            <div class= "product-details">
-            ${product.name}
-            </div>
-            <div class= "product-details"> Quantity: ${product.quantity}</div>
-            <div class= "product-details"> Price: ${product.price}</div>
-            <duv class= "product-details">Subtotal: ${product.price * product.quantity}</div> 
-            <button class= "btn btn-info" id="remove-product" onClick="removeProduct(${indice})"Delete products</button>`; localStorage.getItem("carrito")
-            modalCart.appendChild(cartContainer);
-        })
-        const totalContainer = document.createElement("div")
-        totalContainer.className= "total-cart"
-        totalContainer.innerHTML= `<div class= "total">Total $ ${total}</div>
-        <button class= "btn btn-info finalizar" id= "finalizar" onClick="finalizarCompra`; localStorage.getItem("fin compra")
+//Functions
+function ready(){
+    //Remove products from cart
+    var removeCartButtons = document.getElementsByClassName('cart-remove')
+    console.log(removeCartButtons)
+    for (var i = 0; i < removeCartButtons.length; i++){
+        var button = removeCartButtons[i]
+        button.addEventListener("click", removeCartItem)
+    }
+    //Quantity changes
+    var quantityInputs = document.getElementsByClassName('cart-quantity')
+    for (var i = 0; i < quantityInputs.length; i++){
+        var input = quantityInputs[i]
+        input.addEventListener('change', quantityChanged);
+    }
+    //Add to cart;
+    var addCart = document.getElementsByClassName('add-cart');
+    for (var i = 0; i < addCart.length; i++){
+        var button = addCart[i]
+        button.addEventListener('click', addCartClicked);
+    }
+    //Buy button work
+    document
+    .getElementsByClassName('btn-buy')[0]
+    .addEventListener('click', buyButtonClicked);
+}
+//Buy button
+function buyButtonClicked(){
+    var cartContent = document.getElementsByClassName('cart-content')[0]
+    while (cartContent.hasChildNodes()){
+        cartContent.removeChild(cartContent.firstChild);
+    }
+    updateTotal();
+}
+//Remove cart item
+function removeCartItem(event){
+    var buttonClicked = event.target
+    buttonClicked.parentElement.remove()
+    updateTotal ();
+}
+//Quantity changes
+function quantityChanged(event){
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0){
+        input.value = 1
+    }
+    updateTotal();
+}
+//Add to cart
+function addCartClicked (event){
+    var button = event.target
+    var shopProducts = button.parentElement
+    var title = shopProducts.getElementsByClassName("card-title")[0].innerText
+    var price = shopProducts.getElementsByClassName("card-text")[0].innerText
+    var productImg = shopProducts.getElementsByClassName("cart-img")[0].innerText
+    addProductToCart(title); localStorage.getItem("Selected items")
+    updateTotal();
+}
+function addProductToCart(title, price, productImg){
+    var cartShopBox = document.createElement('div')
+    cartShopBox.classList.add('cart-box')
+    var cartItems = document.getElementsByClassName('cart-content')[0]
+    var cartItemsName = cartItems.getElementsByClassName('cart-product-title')
+    for (var i = 0; i < cartItemsName.length; i++){
+        if (cartItemsName[i].innerText == title);
+        return;
     }
 }
-const removeProduct = (indice)=> {
-    cart.splice(indice, 1);
-    dibujarCarrito();
+var cartBoxContent = `<img src: "${productImg}" class= "cart-img" alt="">
+<div class="detail-box">
+    <div class="cart-product-title">${title}</div>
+    <div class="cart-price">${price}</div>
+    <input type="number" value="1" class="cart-quantity">
+</div>
+<!-- Remove cart -->
+<i class='bx bxs-trash-alt cart-remove'></i>`
+cartShopBox.innerHTML = cartBoxContent
+cartItems.append(cartShopBox)
+cartShopBox
+.getElementsByClassName('cart-remove')[0]
+.addEventListener('click', removeCartItem)
+cartShopBox
+.getElementsByClassName('cart-quantity')[0]
+.addEventListener('change', quantityChanged);
+
+//Update total
+function updateTotal (){
+    var cartContent = document.getElementsByClassName('cart-content')[0]
+    var cartBoxes = cartContent.getElementsByClassName('cart-box')
+    var total = 0;
+    for (var i = 0; i < cartBoxes.length; i++){
+        var cartBox = cartBoxes[i]
+        var priceElement = cartBox.getElementsByClassName('cart-price')[0]
+        var quantityElement = cartBox.getElementsByClassName('cart-quantity')[0]
+        var price = parseFloat(priceElement.innerText.replace('$', ""));
+        var quantity = quantityElement.value
+        total = total + price + quantity;
+    }
+        document.getElementsByClassName('total-price')[0].innerText = '$' + total; localStorage.getItem("tTotal compra")
 }
