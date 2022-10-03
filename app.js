@@ -178,11 +178,11 @@ function addCartClicked (event){
     var shopProducts = button.parentElement
     var title = shopProducts.getElementsByClassName("card-title")[0].innerText
     var price = shopProducts.getElementsByClassName("card-text")[0].innerText
-    var productImg = shopProducts.getElementsByClassName("cart-img")[0].innerText
+    var img = shopProducts.getElementsByClassName("cart-img")[0].innerText
     addProductToCart(title); localStorage.getItem("Selected items")
     updateTotal();
 }
-function addProductToCart(title, price, productImg){
+function addProductToCart(title, price, img){
     var cartShopBox = document.createElement('div')
     cartShopBox.classList.add('cart-box')
     var cartItems = document.getElementsByClassName('cart-content')[0]
@@ -192,7 +192,7 @@ function addProductToCart(title, price, productImg){
         return;
     }
 }
-var cartBoxContent = `<img src: "${productImg}" class= "cart-img" alt="">
+var cartBoxContent = `<img src: "${img}" class= "cart-img" alt="">
 <div class="detail-box">
     <div class="cart-product-title">${title}</div>
     <div class="cart-price">${price}</div>
